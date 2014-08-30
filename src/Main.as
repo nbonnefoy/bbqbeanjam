@@ -1,27 +1,28 @@
-package 
+package
 {
-	import flash.display.Sprite;
-	import flash.events.Event;
+	import citrus.core.starling.StarlingCitrusEngine;
+	import starlingdemo.StarlingDemoGameState;
+	[SWF(frameRate="60")]
 	
 	/**
-	 * ...
-	 * @author nbonnefoy
+	 * @author Aymeric
 	 */
-	public class Main extends Sprite 
+	public class Main extends StarlingCitrusEngine
 	{
-		
-		public function Main():void 
+		public function Main()
 		{
-			if (stage) init();
-			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		private function init(e:Event = null):void 
+		override public function initialize():void
 		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
+			setUpStarling(true);
+			//sound.addSound("Hurt", {sound: "sounds/hurt.mp3"});
+			//sound.addSound("Kill", {sound: "sounds/kill.mp3"});
 		}
 		
+		override public function handleStarlingReady():void
+		{
+			state = new StarlingDemoGameState();
+		}
 	}
-	
 }
