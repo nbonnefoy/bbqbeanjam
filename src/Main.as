@@ -1,7 +1,7 @@
 package
 {
 	import citrus.core.starling.StarlingCitrusEngine;
-	import starlingdemo.StarlingDemoGameState;
+	import Player;
 	[SWF(frameRate="60")]
 	
 	/**
@@ -22,7 +22,7 @@ package
 		
 		override public function handleStarlingReady():void
 		{
-			state = new StarlingDemoGameState();
+			state = new Level();
 		}
 	}
 }
